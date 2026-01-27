@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	html {
+		scroll-behavior: smooth;
+		transition: background-color 0.3s ease, color 0.3s ease;
+	}
+
+	body {
+		@apply antialiased;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply font-bold;
+	}
+
+	a {
+		@apply transition-colors duration-200;
+	}
+}
+
+@layer components {
+	.hero-section {
+		@apply min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10;
+	}
+
+	.section-title {
+		@apply text-4xl md:text-5xl font-bold text-center mb-4 text-primary;
+	}
+
+	.section-subtitle {
+		@apply text-xl md:text-2xl text-center text-base-content/70 mb-12;
+	}
+
+	.card-hover {
+		@apply transition-all duration-300 hover:shadow-xl hover:-translate-y-2;
+	}
+
+	.btn-primary-custom {
+		@apply btn btn-primary text-primary-content font-semibold;
+	}
+
+	.container {
+		@apply max-w-6xl;
+	}
+}
+
+@layer utilities {
+	.text-gradient {
+		@apply bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent;
+	}
+
+	.smooth-transition {
+		@apply transition-all duration-300 ease-in-out;
+	}
+}

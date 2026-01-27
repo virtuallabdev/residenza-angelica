@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://residenza-angelica.it/</loc>
+        <lastmod>2024-01-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://residenza-angelica.it/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://residenza-angelica.it/?lang=en" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://residenza-angelica.it/?lang=de" />
+    </url>
+    <url>
+        <loc>https://residenza-angelica.it/rooms</loc>
+        <lastmod>2024-01-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://residenza-angelica.it/rooms" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://residenza-angelica.it/rooms?lang=en" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://residenza-angelica.it/rooms?lang=de" />
+    </url>
+    <url>
+        <loc>https://residenza-angelica.it/gallery</loc>
+        <lastmod>2024-01-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://residenza-angelica.it/gallery" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://residenza-angelica.it/gallery?lang=en" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://residenza-angelica.it/gallery?lang=de" />
+    </url>
+    <url>
+        <loc>https://residenza-angelica.it/services</loc>
+        <lastmod>2024-01-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://residenza-angelica.it/services" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://residenza-angelica.it/services?lang=en" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://residenza-angelica.it/services?lang=de" />
+    </url>
+    <url>
+        <loc>https://residenza-angelica.it/contacts</loc>
+        <lastmod>2024-01-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://residenza-angelica.it/contacts" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://residenza-angelica.it/contacts?lang=en" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://residenza-angelica.it/contacts?lang=de" />
+    </url>
+</urlset>
