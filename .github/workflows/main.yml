@@ -1,0 +1,47 @@
+name: Deploy to Aruba Hosting
+
+on:
+  push:
+    branches:
+      - main  # Change to your default branch if different
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'  # Adjust to your Node version
+          cache: 'npm'
+
+      - name: Install Terser as dev dependency
+        run: npm install -D terser
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build SvelteKit site
+        run: npm run build
+        env:
+          # Add any build-time environment variables here
+          PUBLIC_API_URL: ${{ secrets.PUBLIC_API_URL }}
+      
+      # - name: Deploy to Aruba
+      #   uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+      #   with:
+      #     server: ${{ secrets.FTP_SERVER }}
+      #     username: ${{ secrets.FTP_USERNAME }}
+      #     password: ${{ secrets.FTP_PASSWORD }}
+      #     protocol: ${{ secrets.FTP_PROTOCOL }}
+      #     port: ${{ secrets.FTP_PORT }}# todo replace with your web hosts ftps port
+      #     local-dir: ./build/  # SvelteKit adapter-static default output
+      #     server-dir: ./  # Root or subdirectory on Aruba (e.g., ./public_html/)
+      #     exclude: |
+      #       **/.git*
+      #       **/.git*/**
+      #       **/node_modules/**
