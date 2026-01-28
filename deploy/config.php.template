@@ -1,0 +1,8 @@
+<?php
+// Questo file verrà generato durante il deploy
+return [
+    'recaptcha_secret' => '{{RECAPTCHA_SECRET_KEY}}',
+    'recaptcha_threshold' => 0.5,
+    'email_to' => '{{SMTP_EMAIL}}',
+    'email_from' => '{{EMAIL_FROM}}'
+];
