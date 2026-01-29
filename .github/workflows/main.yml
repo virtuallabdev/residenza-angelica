@@ -18,10 +18,7 @@ jobs:
         with:
           node-version: '24'  # Adjust to your Node version
           cache: 'npm'
-
-      - name: Install Terser as dev dependency
-        run: npm install -D terser
-      
+     
       - name: Install dependencies
         run: npm ci
       
@@ -29,7 +26,7 @@ jobs:
         run: npm run build
         env:
           # Add any build-time environment variables here
-          PUBLIC_API_URL: ${{ secrets.PUBLIC_API_URL }}
+          VITE_SITE_URL: ${{ secrets.VITE_SITE_URL }}
       
       # - name: Deploy to Aruba
       #   uses: SamKirkland/FTP-Deploy-Action@v4.3.6
