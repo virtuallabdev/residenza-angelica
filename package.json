@@ -18,15 +18,10 @@
 		"@sveltejs/kit": "^2.50.2",
 		"@sveltejs/vite-plugin-svelte": "^6.2.4",
 		"@tailwindcss/typography": "^0.5.19",
-<<<<<<< HEAD
 		"svelte": "^5.50.0",
 		"svelte-check": "^4.3.6",
-=======
-		"svelte": "^5.49.0",
-		"svelte-check": "^4.3.5",
 		"svelte-sitemap": "^2.7.1",
 		"terser": "^5.46.0",
->>>>>>> 07e67de5463da2f4602dc1e60d1bb56c2230e284
 		"typescript": "^5.9.3",
 		"vite": "^7.3.1"
 	},
