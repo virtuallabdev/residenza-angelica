@@ -11,9 +11,9 @@
   }
 </script>
 
-<nav class="navbar bg-base-200 shadow-lg sticky top-0 z-50">
+<nav class="navbar bg-primary text-primary-content sticky top-0 z-50 font-sans shadow-md">
   <div class="flex-1">
-    <a href="/" class="btn btn-ghost text-xl font-bold text-primary">
+    <a href="/" class="btn btn-ghost text-xl font-bold">
       <img
         src="/residenza-angelica-logo.svg"
         alt="Residenza Angelica Logo"

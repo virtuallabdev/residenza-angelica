@@ -6,9 +6,13 @@ const config: Config = {
 	theme: {
 		extend: {
 			colors: {
-				primary: '#8B7355',
-				secondary: '#D4A574',
+				primary: '#00A859',
+				secondary: '#FFFFFF',
 				accent: '#C4956E'
+			},
+			fontFamily: {
+				serif: ['"Playfair Display"', 'serif'],
+				sans: ['"Lato"', 'sans-serif']
 			}
 		}
 	},
@@ -21,33 +25,33 @@ const config: Config = {
 		themes: [
 			{
 				light: {
-					'primary': '#8B7355',
-					'primary-focus': '#6B5345',
+					'primary': '#00A859',
+					'primary-focus': '#008f4c',
 					'primary-content': '#ffffff',
-					'secondary': '#D4A574',
-					'secondary-focus': '#C49560',
-					'secondary-content': '#ffffff',
+					'secondary': '#FFFFFF',
+					'secondary-focus': '#f0f0f0',
+					'secondary-content': '#1f2937',
 					'accent': '#C4956E',
 					'accent-focus': '#A47456',
 					'accent-content': '#ffffff',
-					'neutral': '#f5f5f5',
+					'neutral': '#333333',
 					'base-100': '#ffffff',
 					'base-200': '#f9fafb',
 					'base-300': '#f3f4f6',
-					'base-content': '#1f2937',
+					'base-content': '#333333',
 					'info': '#3b82f6',
-					'success': '#10b981',
+					'success': '#00A859',
 					'warning': '#f59e0b',
 					'error': '#ef4444'
 				}
 			},
 			{
 				dark: {
-					'primary': '#B8956A',
-					'primary-focus': '#D4A574',
-					'primary-content': '#0f172a',
-					'secondary': '#8B7355',
-					'secondary-focus': '#A67C52',
+					'primary': '#00A859',
+					'primary-focus': '#008f4c',
+					'primary-content': '#ffffff',
+					'secondary': '#1f1f1f',
+					'secondary-focus': '#2a2a2a',
 					'secondary-content': '#f5f5f5',
 					'accent': '#C4956E',
 					'accent-focus': '#D4A574',
