@@ -56,6 +56,9 @@ export const de = {
 		error: 'Fehler beim Versenden der Nachricht'
 	},
 	footer: {
+		phone: 'Telefon',
+		email: '-Mail',
+		vat_number: 'Mehrwertsteuer-Nr.',
 		rights: 'Alle Rechte vorbehalten',
 		policy: 'Datenschutzrichtlinie',
 		terms: 'Nutzungsbedingungen',

@@ -56,6 +56,10 @@ export const it = {
 		error: 'Errore nell\'invio del messaggio'
 	},
 	footer: {
+		phone: 'Telefono',
+		email: 'Email',
+		vat_number: 'P. IVA',
+
 		rights: 'Tutti i diritti riservati',
 		policy: 'Privacy Policy',
 		terms: 'Termini di Servizio',

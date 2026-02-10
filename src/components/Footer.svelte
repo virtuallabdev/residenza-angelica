@@ -1,86 +1,74 @@
 <script lang="ts">
   import { language } from '../stores/language';
   import { t } from '../lib/i18n';
+  import FooterCol from './FooterCol.svelte';
+
+  const socials = [
+    { href: 'https://www.facebook.com/residenzaangelicalazise', label: 'Facebook' },
+    { href: 'https://www.instagram.com/residenzaangelica/', label: 'Instagram' },
+  ];
+
+  const titleClass = 'font-bold mb-4 uppercase tracking-widest text-sm';
+  const contentClass = 'text-sm text-white opacity-90';
 </script>
 
 <footer class="bg-primary text-primary-content py-12 mt-16 font-sans">
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      
+      
       <!-- Brand -->
-      <div>
-        <h3 class="font-bold text-lg mb-4 text-white flex items-center gap-2">
-          <img src="/favicon.png" alt="Logo" class="w-8 h-8 brightness-0 invert" />
-          Residenza Angelica
-        </h3>
-        <p class="text-sm opacity-90">
-          Luxury accommodation with premium services and unforgettable experiences.
+      <FooterCol>
+        <div slot="title">
+          <h4 class={titleClass}>
+            <img src="/residenza-angelica-logo.svg" alt="Residenza Angelica Logo" class="w-[160px] h-auto brightness-0 invert" />
+          </h4>
+        </div>
+        <p slot="content" class={contentClass}>
+          Via Pastrengo, 58<br />
+          37017 Lazise (VR)<br />
+          {t($language, 'footer.phone')}: +39 349 844 2487<br />
+          {t($language, 'footer.email')}: <a href="mailto:info@residenzaangelica.it">info@residenzaangelica.it</a><br />
+          Italy<br />
+          {t($language, 'footer.vat_number')}: 04553630239
         </p>
-      </div>
+      </FooterCol>
 
-      <!-- Quick Links -->
-      <div>
-        <h4 class="font-bold mb-4 uppercase tracking-widest text-sm">{t($language, 'nav.home')}</h4>
-        <ul class="space-y-2 text-sm">
-          <li>
-            <a href="/" class="link link-hover hover:text-white/80 transition-colors"
-              >{t($language, 'nav.home')}</a
-            >
-          </li>
-          <li>
-            <a href="/rooms" class="link link-hover hover:text-white/80 transition-colors"
-              >{t($language, 'nav.rooms')}</a
-            >
-          </li>
-          <li>
-            <a href="/gallery" class="link link-hover hover:text-white/80 transition-colors"
-              >{t($language, 'nav.gallery')}</a
-            >
-          </li>
-          <li>
-            <a href="/services" class="link link-hover hover:text-white/80 transition-colors"
-              >{t($language, 'nav.services')}</a
-            >
-          </li>
-        </ul>
-      </div>
+
+      <!-- Socials -->
+      <FooterCol>
+        <h4 slot="title" class={titleClass}>Seguici su</h4>
+        <div slot="content" class="flex gap-4">
+          {#each socials as item}
+            <a href={item.href} class="btn btn-circle btn-sm btn-outline text-white border-white hover:bg-white hover:text-primary">
+              {item.label}
+            </a>
+          {/each}
+        </div>
+       
+      </FooterCol>
+
+
+      <!-- About us -->
+      <FooterCol>
+        <h4 slot="title" class={titleClass}>Chi siamo</h4>
+        <p slot="content" class={contentClass}>
+          Residenza Angelica si trova a Lazise sul Lago di Garda immerso in un ampio e curato giardino a pochi chilometri dal centro storico di del 1° Comune d’Italia e comunque lontano dalle strade più trafficate e dal caos. 
+        </p>
+      </FooterCol>
+
 
       <!-- Contact Info -->
-      <div>
-        <h4 class="font-bold mb-4 uppercase tracking-widest text-sm">
-          {t($language, 'contact.title')}
-        </h4>
-        <ul class="space-y-2 text-sm">
-          <li>📞 +39-123-456-7890</li>
-          <li>📧 info@residenza-angelica.it</li>
-          <li>📍 Via Example 123, City</li>
-          <li>🕐 24/7 Available</li>
-        </ul>
-      </div>
+      <FooterCol>
+        <h4 slot="title" class={titleClass}>{t($language, 'contact.title')}</h4>
+        <p slot="content" class={contentClass}>
+          Residenza Angelica si trova a Lazise sul Lago di Garda immerso in un ampio e curato giardino a pochi chilometri dal centro storico di del 1° Comune d’Italia e comunque lontano dalle strade più trafficate e dal caos. 
+        </p>
+      </FooterCol>
 
-      <!-- Follow Us -->
-      <div>
-        <h4 class="font-bold mb-4 uppercase tracking-widest text-sm">Follow Us</h4>
-        <div class="flex gap-4">
-          <a
-            href="#"
-            class="btn btn-circle btn-sm btn-outline text-white border-white hover:bg-white hover:text-primary"
-            >f</a
-          >
-          <a
-            href="#"
-            class="btn btn-circle btn-sm btn-outline text-white border-white hover:bg-white hover:text-primary"
-            >𝕏</a
-          >
-          <a
-            href="#"
-            class="btn btn-circle btn-sm btn-outline text-white border-white hover:bg-white hover:text-primary"
-            >📷</a
-          >
-        </div>
-      </div>
-    </div>
-
-    <div class="divider before:bg-white/20 after:bg-white/20 my-4" />
+     
+    
+    
 
     <!-- Bottom Footer -->
     <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm opacity-80">

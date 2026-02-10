@@ -56,6 +56,9 @@ export const en = {
 		error: 'Error sending message'
 	},
 	footer: {
+		phone: 'Phone',
+		email: 'Email',
+		vat_number: 'VAT Number',
 		rights: 'All rights reserved',
 		policy: 'Privacy Policy',
 		terms: 'Terms of Service',
