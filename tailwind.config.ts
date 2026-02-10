@@ -6,7 +6,7 @@ const config: Config = {
 	theme: {
 		extend: {
 			colors: {
-				primary: '#00A859',
+				primary: '#15cb67',
 				secondary: '#FFFFFF',
 				accent: '#C4956E'
 			},
@@ -25,7 +25,7 @@ const config: Config = {
 		themes: [
 			{
 				light: {
-					'primary': '#00A859',
+					'primary': '#15cb67',
 					'primary-focus': '#008f4c',
 					'primary-content': '#ffffff',
 					'secondary': '#FFFFFF',
