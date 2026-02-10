@@ -3,11 +3,24 @@
   import { t } from '../lib/i18n';
   import ThemeSwitcher from './ThemeSwitcher.svelte';
   import LanguageSwitcher from './LanguageSwitcher.svelte';
+  import { page } from '$app/stores';
 
   let mobileMenuOpen = false;
 
+  const navItems = [
+    { href: '/', label: 'nav.home' },
+    { href: '/rooms', label: 'nav.rooms' },
+    { href: '/gallery', label: 'nav.gallery' },
+    { href: '/services', label: 'nav.services' },
+    { href: '/contacts', label: 'nav.contacts' }
+  ];
+
   function toggleMobileMenu() {
     mobileMenuOpen = !mobileMenuOpen;
+  }
+
+  function isActive(href: string) {
+    return $page.url.pathname === href;
   }
 </script>
 
@@ -22,21 +35,11 @@
     <!-- Desktop Navigation -->
     <div class="hidden md:flex flex-none gap-2">
       <div class="form-control">
-        <a href="/" class="btn btn-sm btn-ghost">
-          {t($language, 'nav.home')}
-        </a>
-        <a href="/rooms" class="btn btn-sm btn-ghost">
-          {t($language, 'nav.rooms')}
-        </a>
-        <a href="/gallery" class="btn btn-sm btn-ghost">
-          {t($language, 'nav.gallery')}
-        </a>
-        <a href="/services" class="btn btn-sm btn-ghost">
-          {t($language, 'nav.services')}
-        </a>
-        <a href="/contacts" class="btn btn-sm btn-ghost">
-          {t($language, 'nav.contacts')}
-        </a>
+        {#each navItems as item}
+          <a href={item.href} class="btn btn-sm {isActive(item.href) ? 'btn-active' : 'btn-ghost'}">
+            {t($language, item.label)}
+          </a>
+        {/each}
       </div>
 
       <!-- Language Selector -->
@@ -57,37 +60,15 @@
 {#if mobileMenuOpen}
   <div class="md:hidden bg-base-200 border-t border-base-300">
     <div class="flex flex-col p-4 gap-2">
-      <a href="/" class="btn btn-ghost btn-sm w-full" on:click={() => (mobileMenuOpen = false)}>
-        {t($language, 'nav.home')}
-      </a>
-      <a
-        href="/rooms"
-        class="btn btn-ghost btn-sm w-full"
-        on:click={() => (mobileMenuOpen = false)}
-      >
-        {t($language, 'nav.rooms')}
-      </a>
-      <a
-        href="/gallery"
-        class="btn btn-ghost btn-sm w-full"
-        on:click={() => (mobileMenuOpen = false)}
-      >
-        {t($language, 'nav.gallery')}
-      </a>
-      <a
-        href="/services"
-        class="btn btn-ghost btn-sm w-full"
-        on:click={() => (mobileMenuOpen = false)}
-      >
-        {t($language, 'nav.services')}
-      </a>
-      <a
-        href="/contacts"
-        class="btn btn-ghost btn-sm w-full"
-        on:click={() => (mobileMenuOpen = false)}
-      >
-        {t($language, 'nav.contacts')}
-      </a>
+      {#each navItems as item}
+        <a 
+          href={item.href} 
+          class="btn btn-ghost btn-sm w-full {isActive(item.href) ? 'btn-active' : ''}" 
+          on:click={() => (mobileMenuOpen = false)}
+        >
+          {t($language, item.label)}
+        </a>
+      {/each}
 
       <div class="divider my-2"></div>
 
@@ -98,7 +79,6 @@
 
       <!-- Mobile Theme Toggle -->
       <ThemeSwitcher
-        showText={true}
         class="w-full justify-start"
         on:click={() => (mobileMenuOpen = false)}
       />
