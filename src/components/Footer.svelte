@@ -53,7 +53,7 @@
       <FooterCol>
         <h4 slot="title" class={titleClass}>Chi siamo</h4>
         <p slot="content" class={contentClass}>
-          Residenza Angelica si trova a Lazise sul Lago di Garda immerso in un ampio e curato giardino a pochi chilometri dal centro storico di del 1° Comune d’Italia e comunque lontano dalle strade più trafficate e dal caos. 
+          Residenza Angelica si trova a Lazise sul Lago di Garda immerso in un ampio e curato giardino a pochi chilometri dal centro storico di del 1° Comune d'Italia e comunque lontano dalle strade più trafficate e dal caos. 
         </p>
       </FooterCol>
 
@@ -62,23 +62,22 @@
       <FooterCol>
         <h4 slot="title" class={titleClass}>{t($language, 'contact.title')}</h4>
         <p slot="content" class={contentClass}>
-          Residenza Angelica si trova a Lazise sul Lago di Garda immerso in un ampio e curato giardino a pochi chilometri dal centro storico di del 1° Comune d’Italia e comunque lontano dalle strade più trafficate e dal caos. 
-        </p>
+          Check-in: 14:00 - 18:00<br/>
+          Chek-out:10:00<br/><br/>
+          CIN: IT023043B4SFTKHB3W
       </FooterCol>
-
+    </div>
      
     
     
 
     <!-- Bottom Footer -->
     <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm opacity-80">
-      <div>
-        <p>&copy; 2024 Residenza Angelica. {t($language, 'footer.rights')}</p>
-      </div>
       <div class="flex gap-4">
-        <a href="#" class="link link-hover">{t($language, 'footer.policy')}</a>
-        <a href="#" class="link link-hover">{t($language, 'footer.terms')}</a>
-        <a href="#" class="link link-hover">{t($language, 'footer.sitemap')}</a>
+        <a href="/privacy" title="{t($language, 'nav.privacy')}" class="link link-hover">{t($language, 'nav.privacy')}</a>
+      </div>
+      <div>
+        <p>&copy; {new Date().getFullYear()} Residenza Angelica. {t($language, 'footer.rights')}</p>
       </div>
     </div>
   </div>

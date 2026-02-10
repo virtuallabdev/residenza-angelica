@@ -5,7 +5,8 @@ export const en = {
 		gallery: 'Gallery',
 		services: 'Services',
 		contacts: 'Contacts',
-		language: 'Language'
+		language: 'Language',
+		privacy: 'Privacy and Cookie Policy'
 	},
 	home: {
 		title: 'Residenza Angelica',
