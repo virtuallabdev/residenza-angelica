@@ -14,12 +14,7 @@
 <nav class="navbar bg-primary text-primary-content sticky top-0 z-50 font-sans shadow-md">
   <div class="flex-1">
     <a href="/" class="btn btn-ghost text-xl font-bold">
-      <img
-        src="/residenza-angelica-logo.svg"
-        alt="Residenza Angelica Logo"
-        height="auto"
-        class="w-[150px] mr-2 inline-block"
-      />
+      <img src="/residenza-angelica-logo.svg" alt="Residenza Angelica Logo" height="auto" class="w-[150px] mr-2 inline-block" />
     </a>
   </div>
 
