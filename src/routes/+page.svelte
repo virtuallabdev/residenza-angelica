@@ -27,21 +27,26 @@
 </svelte:head>
 
 <!-- Hero Section -->
-<div
-  class="hero min-h-screen relative"
-  style="background-image: url('https://placehold.co/1920x1080/webp');"
->
-  <div class="hero-overlay bg-opacity-30 bg-black"></div>
-  <div class="hero-content text-center text-white pt-20">
+<div class="hero min-h-screen relative overflow-hidden">
+  <!-- Video Background -->
+  <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
+    <source src="/video-home-page.mp4" type="video/mp4" />
+    <source src="/video-home-page.webm" type="video/webm" />
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black opacity-20"></div>
+
+  <!-- Content -->
+  <div class="hero-content relative z-10 text-center text-white">
     <div class="max-w-4xl">
-      <p
-        class="mb-4 uppercase tracking-widest text-sm font-semibold opacity-90 shadow-black drop-shadow-md"
-      >
+      <p class="mb-4 uppercase tracking-widest text-md font-semibold opacity-90 shadow-black drop-shadow-md">
         Residenza Rilassante Per Le Tue Vacanze
       </p>
-      <h1 class="mb-8 text-5xl md:text-7xl font-serif font-bold drop-shadow-lg leading-tight">
-        RESIDENZA ANGELICA<br />
-        <span class="text-4xl md:text-6xl italic">SUL LAGO DI GARDA</span>
+      <h1 class="mb-8 text-5xl md:text-7xl font-serif drop-shadow-lg leading-tight">
+        <img src="/residenza-angelica-logo.svg" alt="Residenza Angelica Logo" class="w-[1000px] mx-auto" />
+        <span class="text-7xl md:text-7xl">SUL LAGO DI GARDA</span>
       </h1>
       <div class="flex flex-col md:flex-row gap-4 justify-center mt-8">
         <a

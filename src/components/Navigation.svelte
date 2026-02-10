@@ -11,43 +11,45 @@
   }
 </script>
 
-<nav class="navbar bg-primary text-primary-content sticky top-0 z-50 font-sans shadow-md">
-  <div class="flex-1">
-    <a href="/" class="btn btn-ghost text-xl font-bold">
-      <img src="/residenza-angelica-logo.svg" alt="Residenza Angelica Logo" height="auto" class="w-[150px] mr-2 inline-block" />
-    </a>
-  </div>
-
-  <!-- Desktop Navigation -->
-  <div class="hidden md:flex flex-none gap-2">
-    <div class="form-control">
-      <a href="/" class="btn btn-sm btn-ghost">
-        {t($language, 'nav.home')}
-      </a>
-      <a href="/rooms" class="btn btn-sm btn-ghost">
-        {t($language, 'nav.rooms')}
-      </a>
-      <a href="/gallery" class="btn btn-sm btn-ghost">
-        {t($language, 'nav.gallery')}
-      </a>
-      <a href="/services" class="btn btn-sm btn-ghost">
-        {t($language, 'nav.services')}
-      </a>
-      <a href="/contacts" class="btn btn-sm btn-ghost">
-        {t($language, 'nav.contacts')}
+<nav class="navbar h-[70px] bg-primary text-primary-content top-0 z-50">
+  <div class="container mx-auto flex items-center">
+    <div class="flex-1">
+      <a href="/" class="btn btn-link">
+        <img src="/residenza-angelica-logo.svg" alt="Residenza Angelica Logo" height="auto" class="w-[200px] mr-2 inline-block" />
       </a>
     </div>
 
-    <!-- Language Selector -->
-    <LanguageSwitcher />
+    <!-- Desktop Navigation -->
+    <div class="hidden md:flex flex-none gap-2">
+      <div class="form-control">
+        <a href="/" class="btn btn-sm btn-ghost">
+          {t($language, 'nav.home')}
+        </a>
+        <a href="/rooms" class="btn btn-sm btn-ghost">
+          {t($language, 'nav.rooms')}
+        </a>
+        <a href="/gallery" class="btn btn-sm btn-ghost">
+          {t($language, 'nav.gallery')}
+        </a>
+        <a href="/services" class="btn btn-sm btn-ghost">
+          {t($language, 'nav.services')}
+        </a>
+        <a href="/contacts" class="btn btn-sm btn-ghost">
+          {t($language, 'nav.contacts')}
+        </a>
+      </div>
 
-    <!-- Theme Toggle -->
-    <ThemeSwitcher />
-  </div>
+      <!-- Language Selector -->
+      <LanguageSwitcher />
 
-  <!-- Mobile Menu Button -->
-  <div class="md:hidden">
-    <button class="btn btn-sm btn-ghost" on:click={toggleMobileMenu}> ☰ </button>
+      <!-- Theme Toggle -->
+      <ThemeSwitcher />
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <div class="md:hidden">
+      <button class="btn btn-sm btn-ghost" on:click={toggleMobileMenu}> ☰ </button>
+    </div>
   </div>
 </nav>
 
