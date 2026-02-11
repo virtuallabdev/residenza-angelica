@@ -5,7 +5,8 @@ export const it = {
 		gallery: 'Galleria',
 		services: 'Servizi',
 		contacts: 'Contatti',
-		language: 'Lingua'
+		language: 'Lingua',
+		privacy: 'Privacy e Cookie Policy'
 	},
 	home: {
 		title: 'Residenza Angelica',
@@ -60,9 +61,12 @@ export const it = {
 		email: 'Email',
 		vat_number: 'P. IVA',
 
+		follow_us: 'Seguici su',
+		about_us: 'Chi siamo',
+		presentation: 'Residenza Angelica si trova a Lazise sul Lago di Garda immerso in un ampio e curato giardino a pochi chilometri dal centro storico di del 1° Comune d\'Italia e comunque lontano dalle strade più trafficate e dal caos.',
+		contact_info: 'Contatti',
+
 		rights: 'Tutti i diritti riservati',
-		policy: 'Privacy Policy',
-		terms: 'Termini di Servizio',
 		sitemap: 'Mappa del Sito'
 	}
 };

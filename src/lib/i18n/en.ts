@@ -60,9 +60,11 @@ export const en = {
 		phone: 'Phone',
 		email: 'Email',
 		vat_number: 'VAT Number',
+		follow_us: 'Follow Us',
+		about_us: 'About Us',
+		presentation: 'Residenza Angelica is located in Lazise on Lake Garda, immersed in a large and well-maintained garden, just a few kilometers from the historic center of the 1st Italian Municipality and far from the most busy roads and chaos.',
+		contact_info: 'Contact Information',
 		rights: 'All rights reserved',
-		policy: 'Privacy Policy',
-		terms: 'Terms of Service',
 		sitemap: 'Sitemap'
 	}
 };
