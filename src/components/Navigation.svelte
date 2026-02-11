@@ -36,7 +36,7 @@
     <div class="hidden md:flex flex-none gap-2">
       <div class="form-control">
         {#each navItems as item}
-          <a href={item.href} class="btn btn-sm {isActive(item.href) ? 'btn-active' : 'btn-ghost'}">
+          <a href={item.href} class="btn btn-sm text-white btn-link {isActive(item.href) ? 'underline' : ''}">
             {t($language, item.label)}
           </a>
         {/each}
