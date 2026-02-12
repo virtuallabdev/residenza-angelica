@@ -3,6 +3,8 @@
 	import { t } from '../lib/i18n';
 	import type { Language } from '../lib/i18n';
 	import { createEventDispatcher } from 'svelte';
+	import { goto } from '$app/navigation';
+	import { page } from '$app/stores';
 
 	export let type: 'dropdown' | 'list' = 'dropdown';
 	
@@ -14,8 +16,29 @@
 		{ code: 'de', name: 'Deutsch' }
 	];
 
-	function changeLanguage(lang: Language) {
+	function buildLangUrl(lang: Language): string {
+		const currentUrl = $page.url.pathname;
+		
+		// Extract the current path without the language prefix
+		let pathWithoutLang = currentUrl;
+		if (currentUrl.startsWith('/it/') || currentUrl.startsWith('/en/') || currentUrl.startsWith('/de/')) {
+			pathWithoutLang = currentUrl.slice(3);
+		} else if (currentUrl === '/it' || currentUrl === '/en' || currentUrl === '/de') {
+			pathWithoutLang = '/';
+		}
+
+		// Build new URL with language prefix
+		if (lang === 'it') {
+			return pathWithoutLang;
+		} else {
+			return `/${lang}${pathWithoutLang}`;
+		}
+	}
+
+	async function changeLanguage(lang: Language) {
 		language.set(lang);
+		const newUrl = buildLangUrl(lang);
+		await goto(newUrl);
 		dispatch('change', lang);
 	}
 </script>

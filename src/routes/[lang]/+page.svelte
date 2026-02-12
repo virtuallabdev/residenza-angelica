@@ -3,9 +3,6 @@
   import { t } from '$lib/i18n';
   import { generateMetaTags } from '$utils/seo';
 
-  // Set Italian as default language for root page
-  language.set('it');
-
   let meta = generateMetaTags({
     title: 'Residenza Angelica - Luxury Hotel Residence',
     description:
@@ -53,13 +50,13 @@
       </h1>
       <div class="flex flex-col md:flex-row gap-4 justify-center mt-8">
         <a
-          href="/contacts"
+          href="/{$language === 'it' ? '' : $language}/contacts"
           class="btn btn-primary btn-wide rounded-none border-none text-white font-bold hover:scale-105 transition-transform uppercase tracking-wider"
         >
           Richiedi Preventivo
         </a>
         <a
-          href="/rooms"
+          href="/{$language === 'it' ? '' : $language}/rooms"
           class="btn btn-primary btn-wide rounded-none border-none text-white font-bold hover:scale-105 transition-transform uppercase tracking-wider"
         >
           Vedi Le Camere
@@ -308,4 +305,3 @@
     </div>
   </div>
 </section>
-

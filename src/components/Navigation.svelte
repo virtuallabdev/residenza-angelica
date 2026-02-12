@@ -8,26 +8,35 @@
   let mobileMenuOpen = false;
 
   const navItems = [
-    { href: '/', label: 'nav.home' },
-    { href: '/rooms', label: 'nav.rooms' },
-    { href: '/gallery', label: 'nav.gallery' },
-    { href: '/services', label: 'nav.services' },
-    { href: '/contacts', label: 'nav.contacts' }
+    { path: '', label: 'nav.home' },
+    { path: 'rooms', label: 'nav.rooms' },
+    { path: 'gallery', label: 'nav.gallery' },
+    { path: 'services', label: 'nav.services' },
+    { path: 'contacts', label: 'nav.contacts' }
   ];
+
+  function buildUrl(path: string): string {
+    if ($language === 'it') {
+      return path ? `/${path}` : '/';
+    } else {
+      return path ? `/${$language}/${path}` : `/${$language}`;
+    }
+  }
 
   function toggleMobileMenu() {
     mobileMenuOpen = !mobileMenuOpen;
   }
 
-  function isActive(href: string) {
-    return $page.url.pathname === href;
+  function isActive(path: string): boolean {
+    const url = buildUrl(path);
+    return $page.url.pathname === url;
   }
 </script>
 
 <nav class="navbar h-[70px] bg-primary text-primary-content top-0 z-50">
   <div class="container mx-auto flex items-center">
     <div class="flex-1">
-      <a href="/" class="btn btn-link">
+      <a href={buildUrl('')} class="btn btn-link">
         <img src="/residenza-angelica-logo.svg" alt="Residenza Angelica Logo" height="auto" class="w-[200px] mr-2 inline-block" />
       </a>
     </div>
@@ -36,7 +45,7 @@
     <div class="hidden md:flex flex-none gap-2">
       <div class="form-control">
         {#each navItems as item}
-          <a href={item.href} class="btn btn-sm text-white btn-link {isActive(item.href) ? 'underline' : ''}">
+          <a href={buildUrl(item.path)} class="btn btn-sm text-white btn-link {isActive(item.path) ? 'underline' : ''}">
             {t($language, item.label)}
           </a>
         {/each}
@@ -62,8 +71,8 @@
     <div class="flex flex-col p-4 gap-2">
       {#each navItems as item}
         <a 
-          href={item.href} 
-          class="btn btn-ghost btn-sm w-full {isActive(item.href) ? 'btn-active' : ''}" 
+          href={buildUrl(item.path)} 
+          class="btn btn-ghost btn-sm w-full {isActive(item.path) ? 'btn-active' : ''}" 
           on:click={() => (mobileMenuOpen = false)}
         >
           {t($language, item.label)}

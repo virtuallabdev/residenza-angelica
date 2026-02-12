@@ -4,4 +4,3 @@ export const load: LayoutLoad = async () => {
 	return {};
 };
 
-export const prerender = true;
