@@ -1,97 +1,38 @@
 <script lang="ts">
 	import { language } from '$stores/language';
-	import { t } from '$lib/i18n';
 	import { generateMetaTags } from '$utils/seo';
 
 	let meta = generateMetaTags({
 		title: 'Gallery - Residenza Angelica',
-		description: 'Discover the beautiful spaces of our luxury residence through our photo gallery.',
-		keywords: ['gallery', 'photos', 'residence', 'hotel', 'interior', 'exterior'],
-		canonical: 'https://residenza-angelica.it/gallery'
+		description: 'Explore our beautiful photo gallery',
+		keywords: ['gallery', 'photos', 'images', 'hotel'],
+		ogTitle: 'Gallery - Residenza Angelica',
+		ogDescription: 'Explore our beautiful photo gallery',
+		ogImage: '/og-image-gallery.jpg',
+		canonical: 'https://residenza-angelica.it/galleria',
 	});
-
-	const gallery = [
-		{ category: 'exterior', emoji: '🏢' },
-		{ category: 'interior', emoji: '🏛️' },
-		{ category: 'rooms', emoji: '🛏️' },
-		{ category: 'dining', emoji: '🍽️' },
-		{ category: 'exterior', emoji: '🌳' },
-		{ category: 'interior', emoji: '✨' }
-	];
-
-	let selectedCategory = 'all';
-
-	$: filteredGallery = selectedCategory === 'all' ? gallery : gallery.filter(item => item.category === selectedCategory);
 </script>
 
 <svelte:head>
 	<title>{meta.title}</title>
 	<meta name="description" content={meta.description} />
+	<meta name="keywords" content={meta.keywords} />
+	<meta name="og:title" content={meta['og:title']} />
+	<meta name="og:description" content={meta['og:description']} />
+	<meta name="og:image" content={meta['og:image']} />
 	<meta name="canonical" content={meta.canonical} />
+	<meta name="robots" content={meta.robots} />
 </svelte:head>
 
-<div class="hero-section">
-	<div class="hero-content text-center">
-		<div class="max-w-2xl">
-			<h1 class="section-title text-gradient">
-				{t($language, 'gallery.title')}
-			</h1>
-			<p class="section-subtitle">
-				{t($language, 'gallery.subtitle')}
-			</p>
+<div class="hero min-h-screen bg-gradient-to-b from-gray-900 to-gray-800">
+	<div class="hero-content text-center text-white py-20">
+		<div class="max-w-4xl">
+			<h1 class="text-5xl md:text-7xl font-serif mb-6">Gallery</h1>
+			<p class="text-xl text-gray-300">Explore our beautiful spaces</p>
 		</div>
 	</div>
 </div>
 
-<section class="py-20">
-	<div class="container mx-auto px-4">
-		<!-- Filter Buttons -->
-		<div class="flex flex-wrap gap-4 justify-center mb-12">
-			<button
-				class="btn {selectedCategory === 'all' ? 'btn-primary' : 'btn-outline'}"
-				on:click={() => (selectedCategory = 'all')}
-			>
-				All
-			</button>
-			<button
-				class="btn {selectedCategory === 'exterior' ? 'btn-primary' : 'btn-outline'}"
-				on:click={() => (selectedCategory = 'exterior')}
-			>
-				{t($language, 'gallery.exterior')}
-			</button>
-			<button
-				class="btn {selectedCategory === 'interior' ? 'btn-primary' : 'btn-outline'}"
-				on:click={() => (selectedCategory = 'interior')}
-			>
-				{t($language, 'gallery.interior')}
-			</button>
-			<button
-				class="btn {selectedCategory === 'rooms' ? 'btn-primary' : 'btn-outline'}"
-				on:click={() => (selectedCategory = 'rooms')}
-			>
-				{t($language, 'gallery.rooms')}
-			</button>
-			<button
-				class="btn {selectedCategory === 'dining' ? 'btn-primary' : 'btn-outline'}"
-				on:click={() => (selectedCategory = 'dining')}
-			>
-				{t($language, 'gallery.dining')}
-			</button>
-		</div>
-
-		<!-- Gallery Grid -->
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-			{#each filteredGallery as item (item)}
-				<div class="card shadow-lg overflow-hidden card-hover bg-base-100">
-					<figure class="h-64 bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
-						<div class="text-6xl">{item.emoji}</div>
-					</figure>
-					<div class="card-body">
-						<h3 class="card-title text-primary capitalize">{item.category}</h3>
-						<p class="opacity-70">Experience the beauty of our {item.category}</p>
-					</div>
-				</div>
-			{/each}
-		</div>
-	</div>
-</section>
+<div class="container mx-auto px-4 py-20">
+	<p class="text-center text-gray-600 mb-8">Gallery content coming soon...</p>
+</div>
