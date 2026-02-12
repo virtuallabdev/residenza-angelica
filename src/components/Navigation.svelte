@@ -4,39 +4,26 @@
   import ThemeSwitcher from './ThemeSwitcher.svelte';
   import LanguageSwitcher from './LanguageSwitcher.svelte';
   import { page } from '$app/stores';
+  import { getNavItems, detectCurrentPage } from '$lib/routes';
 
   let mobileMenuOpen = false;
 
-  const navItems = [
-    { path: '', label: 'nav.home' },
-    { path: 'rooms', label: 'nav.rooms' },
-    { path: 'gallery', label: 'nav.gallery' },
-    { path: 'services', label: 'nav.services' },
-    { path: 'contacts', label: 'nav.contacts' }
-  ];
-
-  function buildUrl(path: string): string {
-    if ($language === 'it') {
-      return path ? `/${path}` : '/';
-    } else {
-      return path ? `/${$language}/${path}` : `/${$language}`;
-    }
-  }
+  $: navItems = getNavItems($language);
+  $: currentPage = detectCurrentPage($page.url.pathname);
 
   function toggleMobileMenu() {
     mobileMenuOpen = !mobileMenuOpen;
   }
 
-  function isActive(path: string): boolean {
-    const url = buildUrl(path);
-    return $page.url.pathname === url;
+  function isActive(itemPage: string): boolean {
+    return currentPage === itemPage;
   }
 </script>
 
 <nav class="navbar h-[70px] bg-primary text-primary-content top-0 z-50">
   <div class="container mx-auto flex items-center">
     <div class="flex-1">
-      <a href={buildUrl('')} class="btn btn-link">
+      <a href={navItems[0].url} class="btn btn-link">
         <img src="/residenza-angelica-logo.svg" alt="Residenza Angelica Logo" height="auto" class="w-[200px] mr-2 inline-block" />
       </a>
     </div>
@@ -45,7 +32,7 @@
     <div class="hidden md:flex flex-none gap-2">
       <div class="form-control">
         {#each navItems as item}
-          <a href={buildUrl(item.path)} class="btn btn-sm text-white btn-link {isActive(item.path) ? 'underline' : ''}">
+          <a href={item.url} class="btn btn-sm text-white btn-link {isActive(item.page) ? 'underline' : ''}">
             {t($language, item.label)}
           </a>
         {/each}
@@ -71,8 +58,8 @@
     <div class="flex flex-col p-4 gap-2">
       {#each navItems as item}
         <a 
-          href={buildUrl(item.path)} 
-          class="btn btn-ghost btn-sm w-full {isActive(item.path) ? 'btn-active' : ''}" 
+          href={item.url} 
+          class="btn btn-ghost btn-sm w-full {isActive(item.page) ? 'btn-active' : ''}" 
           on:click={() => (mobileMenuOpen = false)}
         >
           {t($language, item.label)}
@@ -94,3 +81,4 @@
     </div>
   </div>
 {/if}
+

@@ -5,6 +5,7 @@
 	import { createEventDispatcher } from 'svelte';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
+	import { detectCurrentPage, buildPageUrl } from '$lib/routes';
 
 	export let type: 'dropdown' | 'list' = 'dropdown';
 	
@@ -17,22 +18,15 @@
 	];
 
 	function buildLangUrl(lang: Language): string {
-		const currentUrl = $page.url.pathname;
+		const currentPage = detectCurrentPage($page.url.pathname);
 		
-		// Extract the current path without the language prefix
-		let pathWithoutLang = currentUrl;
-		if (currentUrl.startsWith('/it/') || currentUrl.startsWith('/en/') || currentUrl.startsWith('/de/')) {
-			pathWithoutLang = currentUrl.slice(3);
-		} else if (currentUrl === '/it' || currentUrl === '/en' || currentUrl === '/de') {
-			pathWithoutLang = '/';
+		// If we can't detect the page, go to home for that language
+		if (!currentPage) {
+			return buildPageUrl('home', lang);
 		}
-
-		// Build new URL with language prefix
-		if (lang === 'it') {
-			return pathWithoutLang;
-		} else {
-			return `/${lang}${pathWithoutLang}`;
-		}
+		
+		// Build URL for the same page in the new language
+		return buildPageUrl(currentPage, lang);
 	}
 
 	async function changeLanguage(lang: Language) {
